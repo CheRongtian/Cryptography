@@ -5,6 +5,8 @@ export Arcfour *rc4init(int8 *key, int16 size)
     int x;
     int8 temp1, temp2;
     Arcfour *p;
+    int32 n;
+
     if(!(p=malloc(sizeof(struct s_arcfour))))
     {
         perror("malloc failed");
@@ -42,7 +44,8 @@ export Arcfour *rc4init(int8 *key, int16 size)
         p->s[p->j] = temp1;
     }
     p->i = p->j = 0;
-
+    rc4whitewash(n, p);
+    
     return p;
 }
 
