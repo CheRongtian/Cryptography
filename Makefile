@@ -1,7 +1,7 @@
 all: arcfour example
 
 example: example.o
-	clang example.o -o example -Wall -O2
+	clang example.o arcfour.o -o example -Wall -O2
 
 example.o: example.c
 	clang -c -O2 -Wall example.c
